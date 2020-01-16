@@ -16,6 +16,8 @@ This tool is for testing Dash masternode deployment and management.
    2. Provide details and credentials for existing infrastructure
 2. Provide Dash masternode settings in `inventories/group_vars/all.yml`
 
+3. Add host name or IP to hosts file
+
 ## Setup
 
 1. `vagrant up` (optional if using Vagrant)
