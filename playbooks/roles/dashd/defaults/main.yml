@@ -1,4 +1,4 @@
 ---
 
-dashd_indexes: false
+dashd_indexes: true
 ansible_python_interpreter: "/usr/bin/env python-docker"

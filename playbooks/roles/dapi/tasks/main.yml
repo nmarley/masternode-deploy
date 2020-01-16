@@ -10,7 +10,7 @@
     networks:
       - name: '{{ docker_network_name }}'
     restart_policy: always
-    command: 'npm run core' #npm run api?
+    command: 'npm run api'
     env:
       DASHCORE_RPC_HOST:     'dashd'
       DASHCORE_RPC_PORT:     '{{ dashd_rpc_port }}'

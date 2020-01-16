@@ -1,4 +1,24 @@
 ---
+
+- name: Pre-Install - Python3 and Aptitude
+  hosts: all
+  become: true
+  gather_facts: no
+  tasks:
+    - name: update apt cache
+      raw: apt-get update
+    - name: install python and aptitude
+      raw: apt-get -y install python3 python3-pip aptitude
+
+- name: Update apt cache
+  hosts: all
+  become: true
+  tasks:
+    - name: Run apt-get update if the latest one is more than an hour ago
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
 - name: Set up environment
   hosts: all
   become: true
@@ -6,16 +26,16 @@
   roles:
     - nickjj.user
     - nickjj.sshd
-    # - nickjj.fail2ban
-    - nickjj.iptables
     - nickjj.swapfile
-    - nickjj.docker
-  post_tasks:
-  - name: Install modules
-    pip: 
-      name: 
-        - pymongo 
-        - docker
+
+- name: install geerlinguy roles
+  hosts: all
+  vars:
+    pip_install_packages:
+      - name: docker
+  roles:
+    - geerlingguy.pip
+    - geerlingguy.docker
 
 - name: Set up masternode
   hosts: all
