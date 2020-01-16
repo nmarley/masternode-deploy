@@ -1,23 +1,24 @@
 ---
 
 # Docker images
-dashd_image:     dashpay/dashd
+dashd_image:     dashpay/dashd:0.14.0.5
 sentinel_image:  strophy/sentinel
-dapi_image:      dashpay/dapi
-drive_image:     dashpay/drive
+dapi_image:      dashpay/dapi:dev
+drive_image:     dashpay/drive:dev
 insight_image:   dashpay/insight-api
 mongodb_image:   mongo
-jsmachine_image: dashpay/js-machine
+jsmachine_image: dashpay/js-machine:dev
+tendermint_image: tendermint/tendermint:v0.32.8
 
 # Dash settings
-dash_network: testnet
-evo_services: false
+dash_network: evonet
+evo_services: true
 dashd_user: dash
 dashd_group: dash
 dashd_home: /dash
 dashd_rpc_user: dashrpc
 dashd_rpc_password: password
-dashd_zmq: false
+dashd_zmq: true
 
 # Masternode settings
 masternode: false
